@@ -7,7 +7,7 @@ Using a kaggle dataset to train 2 different models for segmentation
   <dt>UNET model</dt>
   <dd> https://drive.google.com/file/d/1RXJXcsFJqBUi3FrCgRY2UsBQ04tJXSJk/view?usp=sharing </dd>
 </dl>
-# INPUT
+**INPUT Requirments**
 <ul>
   <li> The input has to be grayscale image of shape 256*256*1</li>
   <li> The intensities have to be normalize by divinding them by 255.0 </li>
