@@ -10,5 +10,5 @@ This <b><a href="Brain_Segmentation_using_UNET_AND_ResidualUNET.ipynb">notebook<
 <b><h3>INPUT Requirments</h3></b>
 <ul>
   <li> The input has to be grayscale image of shape 256*256*1</li>
-  <li> The intensities have to be normalize by divinding them by 255.0 </li>
+  <li> The intensities have to be normalize by dividing them by 255.0 </li>
 </ul>
