@@ -1,5 +1,5 @@
 # Brain-Tumor-segmentation-using-UNET-AND-RESUNET
-Using a kaggle dataset to train 2 different models for segmentation
+This <b><a href="../Brain_Segmentation_using_UNET_AND_ResidualUNET.ipynb">notebook</a></b> demonstrates metrics for segmentation and performance of 2 different models for segmentation on a kaggle dataset
 # Link to the trained models
 <dl>
   <dt>RES-Unet Model</dt>
