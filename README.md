@@ -12,6 +12,7 @@ This <b><a href="Brain_Segmentation_using_UNET_AND_ResidualUNET.ipynb">notebook<
   <li> The input has to be grayscale image of shape 256*256*1</li>
   <li> The intensities have to be normalize by dividing them by 255.0 </li>
 </ul>
+
 ### Brain tumor segmentation with RESUNET/UNET
 
 ```
