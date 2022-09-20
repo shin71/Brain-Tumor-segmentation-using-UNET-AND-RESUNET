@@ -95,17 +95,13 @@ Saliency Map.
 pixel is i.e brightness of a pixel is directly proportional to its saliency. It is generally a
 grayscale image.
 ```
-3. Saliency maps are also called as a heat map where hotness refers to those regions of the
+3. Saliency maps are also called as a heat map where hotness refers to those regions of the image which have a big impact on predicting the class which the object belongs to.
 
-image which have a big impact on predicting the class which the object belongs to.
-
-4. Here is an example, the picture shown in the right is the saliency map of the left one
-
-which shows the regions which are more attentive part to CNN.
+4. Here is an example, the picture shown in the right is the saliency map of the left one which shows the regions which are more attentive part to CNN.
 <img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.006.png">
 
 
-###### UNET ARCHITECTURE
+## UNET ARCHITECTURE
 
 1. The model architecture is fairly simple:
 
@@ -114,61 +110,51 @@ a. an encoder (for downsampling)
 b. a decoder (for upsampling) with skip connection
 ```
 2. it shapes like the letter U hence the name U-Net.
-<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.007.png">
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.007.jpeg">
 
-# resUNET ARCHITECTURE
-<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.008.png">
+## resUNET ARCHITECTURE
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.008.jpeg">
 
-**Why are we using Dice score instead of binary cross**
-
-**entropy**
+**Why are we using Dice score instead of binary cross entropy**
 
 1. The main reason that people try to use dice coefficient or IoU directly is that the actual goal
-
 ```
 is maximization of those metrics, and cross-entropy is just a proxy which is easier to
 maximize using backpropagation.
 ```
 2. In addition, Dice coefficient performs better at class imbalanced problems by design:
 3. More advanced reasons can be found here -
-
 ```
 https://stats.stackexchange.com/questions/321460/dice-coefficient-loss-function-vs-cross
 -entropy
 ```
 4. Even on checking the training stats you will notice that accuracy has be pretty much
-
 constant since the start only reason but dice score has been constantly improving
 
+**Measures to prevent overfitting and improve score**
 
-**Measures to prevent overfitting and improve**
+1. I am using Early stopping on val_dice_loss to make sure that score doesn’t get bad
 
-**score**
-
-1. I am using Early stopping on val_dice_loss to make sure that score doesn’t get
-
-bad
-
-2. Score can be improved to become way better by using more epochs I just used
-
-75 due to time constraints 300 is probably a good number
-
-
+2. Score can be improved to become way better by using more epochs I just used 75 due to time constraints 300 is probably a good number
+3. 
 #### Training statistics visualized of UNET
-
-<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.010.jpeg">
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.009.jpeg">
 
 #### Training statistics visualized of resUNET
-
-<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.011.jpeg">
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.010.jpeg">
 
 ## COMPARING results
-
-UNET MODEL
-<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.011.png">
-RESUNET MODEL
-<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.012.png">
-
-**Visualizing the results**
+<table>
+    <tr>
+        <th>UNET MODEL<th>
+        <th>RES-UNET MODEL<th>
+    <tr>
+    <tr>
+        <th><img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.011.png"><th>
+        <th><img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.012.png"><th>
+    <tr>
+</table>
+        
+## Visualizing the results
 <img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.013.png">
 
