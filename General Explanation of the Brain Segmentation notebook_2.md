@@ -1,6 +1,4 @@
-#### Brain tumor segmentation
-
-#### with RESUNET/UNET
+### Brain tumor segmentation with RESUNET/UNET
 
 ```
 Using UNET to determine brain
@@ -15,7 +13,7 @@ UIET CSE
 **We are given various images of brain scans and brain tumor masks corresponding to
 it.Our goal is to train our model such that given an image of brain it should be able to
 detect the tumor.**
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.004.png">
 
 ### Dataset description
 
@@ -27,7 +25,7 @@ Our dataset has 4 folders
 4. Saliency maps 2
 5. Approx size of dataset 900MB
 6. Thera are 3064 images and masks
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.005.png">
 
 What Is a Mask?
 
@@ -50,44 +48,35 @@ something like [255,0,0,255] for mask. then we can use the index to create the m
 would have something like [1,0,0,1] as our mask.
 ```
 
-##### How to download the
-
-##### dataset
+##### How to download the dataset
 
 We will be using Kaggle API to download the dataset
 
 1. Install kaggle package in python using !pip install kaggle.You can check if its already present using !pip
     show kaggle.
 2. Upload the kaggle.json file which contains the api key to root directory
-    ~/.kaggle/kaggle.json
-3. Use !kaggle competitions download -c state-farm-distracted-driver-detection to download it in zip
+   ``` ~/.kaggle/kaggle.json ```
+3. Use ```!kaggle competitions download -c state-farm-distracted-driver-detection``` to download it in zip
     format
 
 
 **Loading/Analysing/Cleaning the data**
 
 1. The dataset is in zip folder so first we need to unzip the dataset which can simply be done by
-    a. !unzip /content/brain-tumor-dataset-with-saliency.zip
+    a. ```!unzip /content/brain-tumor-dataset-with-saliency.zip```
 2. First we need the natsort library which is used to perform natural sort on strings i.e 1,2,3,4,10 instead
     of 1,10,2,3,
 3. Since correspondence of images and masks are messed up natsort will bring them in order
 4. We need to eliminate folders from images and masks that can be done by running a loop and only
     including files and skipping folders
-       a. os.path.isfile(img_path + '/' + i) if this is false we skip because path is a folder
+       a. ```os.path.isfile(img_path + '/' + i)``` if this is false we skip because path is a folder
 5. Then we declare np array of all zeros which has the shape of (images,image_dimensions)
-6. Then we run a loop loading and processing each image before storing it in X,Y which contain the brain
-
-```
-images and masks respectively
-```
+6. Then we run a loop loading and processing each image before storing it in X,Y which contain the brain images and masks respectively
 
 #### Image preprocessing
 
-1. Initially sizes of images is 512*512*3 which we change to 256*256*1 grayscale
-2. We also normalize the pixel intensities by bringing them b/w 0 and 1 by dividing them
-
-by 255.
-
+1. Initially sizes of images is 512\*512\*3 which we change to 256\*256\*1 grayscale
+2. We also normalize the pixel intensities by bringing them b/w 0 and 1 by dividing them by 255.
 3. 255.0 because they need to be in float
 
 
@@ -113,6 +102,7 @@ image which have a big impact on predicting the class which the object belongs t
 4. Here is an example, the picture shown in the right is the saliency map of the left one
 
 which shows the regions which are more attentive part to CNN.
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.006.png">
 
 
 ###### UNET ARCHITECTURE
@@ -124,10 +114,10 @@ a. an encoder (for downsampling)
 b. a decoder (for upsampling) with skip connection
 ```
 2. it shapes like the letter U hence the name U-Net.
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.007.png">
 
 # resUNET ARCHITECTURE
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.008.png">
 
 **Why are we using Dice score instead of binary cross**
 
@@ -164,23 +154,21 @@ bad
 75 due to time constraints 300 is probably a good number
 
 
-#### Training statistics visualized of
+#### Training statistics visualized of UNET
 
-#### UNET
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.010.jpeg">
 
+#### Training statistics visualized of resUNET
 
-#### Training statistics visualized of
-
-#### resUNET
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.011.jpeg">
 
 ## COMPARING results
 
 UNET MODEL
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.011.png">
 RESUNET MODEL
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.012.png">
 
 **Visualizing the results**
-
+<img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.013.png">
 
