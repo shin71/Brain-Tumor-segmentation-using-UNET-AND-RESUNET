@@ -71,8 +71,9 @@ We will be using Kaggle API to download the dataset
     show kaggle.
 2. Upload the kaggle.json file which contains the api key to root directory
    ``` ~/.kaggle/kaggle.json ```
-3. Use ```!kaggle competitions download -c state-farm-distracted-driver-detection``` to download it in zip
+3. Use ```!kaggle datasets download -d ashkhagan/brain-tumor-dataset-with-saliency``` to download it in zip
     format
+   
 
 
 **Loading/Analysing/Cleaning the data**
