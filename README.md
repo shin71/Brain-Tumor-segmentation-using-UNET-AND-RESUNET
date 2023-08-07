@@ -151,7 +151,8 @@ constant since the start only reason but dice score has been constantly improvin
 1. I am using Early stopping on val_dice_loss to make sure that score doesn’t get bad
 
 2. Score can be improved to become way better by using more epochs I just used 75 due to time constraints 300 is probably a good number
-3. 
+
+<pre>NOTE - the last graphs of both UNET and RESUNET are plotted between epochs and dice_score apologies for the typo</pre>
 #### Training statistics visualized of UNET
 <img src = "imgs/Aspose.Words.0f5584e2-3eab-41f5-abbd-cba8a45be978.009.jpeg">
 
